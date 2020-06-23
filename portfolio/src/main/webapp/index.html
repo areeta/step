@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Areeta Wong's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    <div id="content">
-      <h1>Areeta Wong</h1>
-      <p>Hi! I'm an incoming 3rd year at University of California, Irvine studying computer science and minoring
-          in Informatics, interested in technology and product management. Outside of school, I enjoy guiding 
-          students (especially females) into the world of tech through hackathons, clubs, and a mailing list 
-          for focused on high school. Currently, I'm a Google STEP Intern on the Google Ads team.
-      </p>
-      <a href="http://twitter.com/areetaw" class="fa fa-twitter"></a>
-      <img src="images/google.jpg" width="330">
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomFact()">Click Here to Get a Random Fact</button>
-      <div id="fact-container"></div>
-    </div>
-  </body>
+    <head>
+        <!-- meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- style -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- js -->
+        <script src="script.js"></script>
+
+        <title>Areeta Wong</title>
+    </head>
+    <body>
+        <section id="about">
+            <h1 class="text-uppercase">Areeta Wong</h1>
+            <p>Hi! I'm an incoming 3rd year at University of California, Irvine studying computer science and minoring
+            in Informatics, interested in technology and product management. Outside of school, I enjoy guiding 
+            students (especially females) into the world of tech through hackathons, clubs, and a mailing list 
+            for focused on high school. Currently, I'm a Google STEP Intern on the Google Ads team.
+            </p>
+            <div class="socials" style="flex-direction: row; text-align: center;">
+                <a href="http://twitter.com/areetaw" class="fa fa-twitter"></a>
+                <a href="https://github.com/areetaw" class="fa fa-github"></a>
+                <a href="https://www.linkedin.com/in/areetaw" class="fa fa-linkedin"></a>
+            </div>
+        </section>
+        <section id="projects">
+            <h2 class="text-uppercase">Projects</h2>
+        </section>
+        <section id="images">
+
+        </section>
+        <section id="leadership">
+            <h2 class="text-uppercase">Leadership</h2>
+
+        </section>
+        <button onclick="addRandomFact()">Click Here to Get a Random Fact</button>
+        <div id="fact-container"></div>
+        </div>
+    </body>
 </html>
