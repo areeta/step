@@ -12,6 +12,11 @@ h1 {
     text-align: center;
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+}
+
 h2 {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -27,18 +32,6 @@ a:link, a:visited, a:hover {
 
 a #link {
     color: #000000;
-}
-
-img {
-    max-width: 170px !important;
-    min-width: 100px;
-    height: auto;
-    display: inline-block;
-    border: 4px solid #FFFFFF;
-}
-
-img.rounded-circle.profile {
-    max-width: 250px !important;
 }
 
 .jumbotron {
