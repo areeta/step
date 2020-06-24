@@ -66,15 +66,24 @@ img.rounded-circle.profile {
 .fa {
     padding: 20px;
     margin: 0.5rem;
-    font-size: 30px;
+    font-size: 2rem !important;
     width: 70px;
     text-align: center;
     text-decoration: none;
-    border-radius: 50%;
-    align-items: center;
     color: #000000;
 }
 
 .fa:hover {
     opacity: 0.7;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.5); 
+    color: #000000;
+}
+
+.btn-primary {
+    color: #FFFFFF;
+    background-color: #898CAE;
+    border-color: #FFFFFF;
 }
