@@ -80,6 +80,7 @@ img.rounded-circle.profile {
 .card {
     background-color: rgba(255, 255, 255, 0.5); 
     color: #000000;
+    margin-bottom: 1rem;
 }
 
 .btn-primary {
