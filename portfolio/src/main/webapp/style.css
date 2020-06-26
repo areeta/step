@@ -1,83 +1,81 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #898CAE;
-    font-family: 'Muli', sans-serif;
-    color: #FFFFFF;
-    font-size: 18px;
+  margin: 0;
+  padding: 0;
+  background-color: #898cae;
+  font-family: 'Muli', sans-serif;
+  color: #FFFFFF;
+  font-size: 18px;
 }
 
 h1 {
-    margin: 1rem;
-    text-align: center;
+  margin: 1rem;
+  text-align: center;
 }
 
-img{
-    max-width: 100%;
-    height: auto;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 h2 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 a {
-    color: #898CAE;
+  color: #898cae;
 }
 
 a:link, a:visited, a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a #link {
-    color: #000000;
+  color: #000000;
 }
 
 .jumbotron {
-    color: #000000;
-    padding: 4.5rem 4rem;
-    margin: 0;
-}
-
-#container {
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  color: #000000;
+  padding: 3rem 2rem;
+  margin: 0;
 }
 
 #socials {
-    margin: 2rem 2rem 0 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 2rem;
+  margin: 2rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 2rem;
 }
 
 .fa {
-    padding: 20px;
-    margin: 0.5rem;
-    font-size: 2rem !important;
-    width: 70px;
-    text-align: center;
-    text-decoration: none;
-    color: #000000;
+  padding: 0.7rem;
+  font-size: 1.5rem !important;
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.5); 
-    color: #000000;
-    margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.5); 
+  color: #000000;
+  margin-bottom: 1rem;
 }
 
 .btn-primary {
-    color: #FFFFFF;
-    background-color: #898CAE;
-    border-color: #FFFFFF;
+  color: #ffffff;
+  background-color: #898cae;
+  border-color: #ffffff;  
+}
+
+.icons { 
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin-right: 1rem;
+  background-size: 100%; 
 }
