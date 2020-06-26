@@ -40,6 +40,10 @@ a #link {
   margin: 0;
 }
 
+.page {
+  margin: 50px auto 0 auto;
+}
+
 #socials {
   margin: 2rem 2rem 0 2rem;
   display: flex;
@@ -170,7 +174,7 @@ a #link {
   
   /* Full-width containers */
   .container {
-    width: 100%;
+    width: 120%;
     padding-left: 70px;
     padding-right: 25px;
   }
@@ -192,4 +196,28 @@ a #link {
     .right {
     left: 0%;
   }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+.header h2 {
+  text-align: center;
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #cccccc;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #384580;
+  width: 0%;
 }
