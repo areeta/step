@@ -18,305 +18,367 @@
         
       <!-- icon library -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
       <title>Areeta Wong</title>
+      <link rel="icon" href="images/svg/icons8-female-user.svg">
   </head>
   <body>
-    <!-- navigation bar -->
-    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#header">Areeta Wong</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">about me</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#projects">projects</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link js-scroll-trigger" href="#hobbies">hobbies</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- about me -->
-    <section id="about">
-      <div class="jumbotron text-left" style="color: #000000;">
-        <div class="mx-5 mx-xl-5">
-          <div class="row" style="margin-left: 0px">
-            <img class="icons" src="images/svg/icons8-female-user.svg">           
-            <h2>about me</h2>
-          </div>
-          <p>Hi! I'm Areeta and I'm an incoming 3rd year at <a class="link" href="https://uci.edu/">University of
-            California, Irvine</a> studying computer science with a minor in Informatics, interested in technology
-            and product management. Although born and raised in San Francisco and Foster City, my interest in tech didn't start
-            until my summer at Twitter with <a class="link" href="https://girlswhocode.com/">Girls Who Code
-            </a> in the summer of 2016; it was the first time I ever saw, wrote, and understood code. Since then,
-            I've been jumping on opportunities to pay it forward and help computer science education be
-            more accessible to students through organizing hackathons, hosting workshops, and leading organizations.
-          </p>
-          <p>Outside of CS, one of my favorite things to do is eat! From sashimi from the Japan's famous Tsukiji fish market to 
-            Southern California's homemade Omomo boba, my taste buds want to experience it all. Since I can remember, I have
-            been a big fan of food; it always brought people together (often those of different cultures) and made people happy and full.
-            A fun fact about me is that in Winter Quarter of 2020, I drank boba at least 4 times a week; Irvine, CA has over 15 locations for boba
-            so it is quite hard to not drink boba.
-          </p>
-          <p>Currently, I'm a Student Training in Engineering Program (STEP) Intern, formerly known as Engineering Practicum, at Google working
-            on the Google Ads team. Feel free to ask me anything or reach out to me at areetaw@gmail.com!
-          </p>
-          <div class="socials" style="flex-direction: row; text-align: center;">
-            <a href="https://twitter.com/areetaw" class="fa fa-twitter"></a>
-            <a href="https://medium.com/@areetaw" class="fa fa-medium"></a>
-            <a href="mailto:areetaw@gmail.com" class="fa fa-envelope"></a>
-            <a href="https://github.com/areetaw" class="fa fa-github"></a>
-            <a href="https://www.linkedin.com/in/areetaw" class="fa fa-linkedin"></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- projects -->
-    <section id="projects">
-      <div class="jumbotron text-left" style="background-color: #898CAE; color: #FFFFFF;">
-        <div class="mx-5 mx-xl-5">
-          <div class="row" style="margin-left: 0px">
-            <img class="icons" src="images/svg/icons8-idea.svg">           
-            <h2>projects</h2>
-          </div>
+    
+    <div class="header">
+      <div class="progress-container">
         
-        <!-- first row: search engine, ics web crawler, areetawong.com -->
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">search engine</h5>
-                <span class="badge badge-pill badge-light">python</span>
-                <span class="badge badge-pill badge-secondary">flask</span>
-                <p class="card-text">a search engine built from scratch that is capable of handling 10,000+
-                of documents with a query response time under 300ms
-                </p>
-                <h6 class="card-subtitle mb-2 text-muted">built at cs 121 spring 2020</h6>
-                <a href="https://github.com/areetaw/search-engine" class="btn btn-primary">github repo</a>
+        <!-- navigation bar -->
+        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light" id="mainNav">
+          <a class="navbar-brand js-scroll-trigger" href="#header">Areeta Wong</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">about me</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#projects">projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#skills">skills</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#journey">journey</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#hobbies">hobbies</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="progress-bar" id="myBar"></div>
+      </div>  
+    </div>
+
+    <div class="page">
+      <!-- about me -->
+      <section id="about">
+        <div class="jumbotron text-left" style="color: #000000;">
+          <div class="mx-5 mx-xl-5">
+            <div class="row" style="margin-left: 0px">
+              <img class="icons" src="images/svg/icons8-female-user.svg">           
+              <h2>about me</h2>
+            </div>
+            <p>Hi! I'm Areeta and I'm an incoming 3rd year at <a class="link" href="https://uci.edu/">University of
+              California, Irvine</a> studying computer science with a minor in Informatics, interested in technology
+              and product management. Although born and raised in San Francisco and Foster City, my interest in tech didn't start
+              until my summer at Twitter with <a class="link" href="https://girlswhocode.com/">Girls Who Code
+              </a> in the summer of 2016; it was the first time I ever saw, wrote, and understood code. Since then,
+              I've been jumping on opportunities to pay it forward and help computer science education be
+              more accessible to students through organizing hackathons, hosting workshops, and leading organizations.
+            </p>
+            <p>Outside of CS, one of my favorite things to do is eat! From sashimi from the Japan's famous Tsukiji fish market to 
+              Southern California's homemade Omomo boba, my taste buds want to experience it all. Since I can remember, I have
+              been a big fan of food; it always brought people together (often those of different cultures) and made people happy and full.
+              A fun fact about me is that in Winter Quarter of 2020, I drank boba at least 4 times a week; Irvine, CA has over 15 locations for boba
+              so it is quite hard to not drink boba.
+            </p>
+            <p>Currently, I'm a Student Training in Engineering Program (STEP) Intern, formerly known as Engineering Practicum, at Google working
+              on the Google Ads team. Feel free to ask me anything or reach out to me at areetaw@gmail.com!
+            </p>
+            <div class="socials" style="flex-direction: row; text-align: center;">
+              <a href="https://twitter.com/areetaw" class="fa fa-twitter"></a>
+              <a href="https://medium.com/@areetaw" class="fa fa-medium"></a>
+              <a href="mailto:areetaw@gmail.com" class="fa fa-envelope"></a>
+              <a href="https://github.com/areetaw" class="fa fa-github"></a>
+              <a href="https://www.linkedin.com/in/areetaw" class="fa fa-linkedin"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- projects -->
+      <section id="projects">
+        <div class="jumbotron text-left" style="background-color: #898CAE; color: #FFFFFF;">
+          <div class="mx-5 mx-xl-5">
+            <div class="row" style="margin-left: 0px">
+              <img class="icons" src="images/svg/icons8-idea.svg">           
+              <h2>projects</h2>
+            </div>
+          
+          <!-- first row: search engine, ics web crawler, areetawong.com -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">search engine</h5>
+                  <span class="badge badge-pill badge-light">python</span>
+                  <span class="badge badge-pill badge-secondary">flask</span>
+                  <p class="card-text">a search engine built from scratch that is capable of handling 10,000+
+                    of documents with a query response time under 300ms
+                  </p>
+                  <h6 class="card-subtitle mb-2 text-muted">built at cs 121 spring 2020</h6>
+                  <a href="https://github.com/areetaw/search-engine" class="btn btn-primary">github repo</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">ics web crawler</h5>
+                  <span class="badge badge-pill badge-light">python</span>
+                  <p class="card-text">a web crawler that runs through the uci cs department domains while maintaining
+                    politeness rules and checking if it is valid
+                  </p>
+                  <h6 class="card-subtitle mb-2 text-muted">built at cs 121 spring 2020</h6>
+                  <a href="https://github.com/areetaw/ics-web-crawler" class="btn btn-primary">github repo</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">personal website</h5>
+                  <span class="badge badge-pill badge-secondary">html</span>
+                  <span class="badge badge-pill badge-dark">css</span>
+                  <span class="badge badge-pill badge-warning">adobe xd</span>
+                  <p class="card-text">a personal website to showcase myself and act as my corner on the internet; will be
+                    adding more to it after the summer ends
+                  </p>
+                  <h6 class="card-subtitle mb-2 text-muted">updated may 2020</h6>
+                  <a href="https://github.com/areetaw/areetaw.github.io" class="btn btn-primary">github repo</a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">ics web crawler</h5>
-                <span class="badge badge-pill badge-light">python</span>
-                <p class="card-text">a web crawler that runs through domains under the uci cs department
-                while maintaining politeness rules and checking if it is valid
-                </p>
-                <h6 class="card-subtitle mb-2 text-muted">built at cs 121 spring 2020</h6>
-                <a href="https://github.com/areetaw/ics-web-crawler" class="btn btn-primary">github repo</a>
+
+          <!-- second row: reddit android app, dream destination, and maps vr -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">reddit</h5>
+                  <span class="badge badge-pill badge-success">android studio</span>
+                  <span class="badge badge-pill badge-primary">java</span>
+                  <span class="badge badge-pill badge-warning">firebase</span>
+                  <p class="card-text">a mobile app that mocks <a class="link" href="https://reddit.com/">reddit</a> 
+                    with a thread where user can add, search, and delete messages or sub-messages through a database
+                  </p>
+                  <h6 class="card-subtitle mb-2 text-muted">built at ics 45j fall 2019</h6>
+                  <a href="https://github.com/areetaw/ics-45j/tree/master/Lab5" class="btn btn-primary">github repo</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">personal website</h5>
-                <span class="badge badge-pill badge-secondary">html</span>
-                <span class="badge badge-pill badge-dark">css</span>
-                <span class="badge badge-pill badge-warning">adobe xd</span>
-                <p class="card-text">a personal website to showcase social media and act as my corner on the internet;
-                will be adding to it after this summer ends
-                </p>
-                <h6 class="card-subtitle mb-2 text-muted">updated may 2020</h6>
-                <a href="https://github.com/areetaw/areetaw.github.io" class="btn btn-primary">github repo</a>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">dream destination</h5>
+                  <span class="badge badge-pill badge-light">python</span>
+                  <span class="badge badge-pill badge-danger">jinja</span>
+                  <span class="badge badge-pill badge-secondary">html</span>
+                  <span class="badge badge-pill badge-dark">css</span>
+                  <span class="badge badge-pill badge-info">yelp api</span>
+                  <p class="card-text">a travel web app where users submit a form and get matched 
+                    with a vacation spot along with food, lodging, and activities reccs
+                  </p>
+                  <h6 class="card-subtitle mb-2 text-muted">built at cssi mtv 2018</h6>
+                  <a href="https://github.com/areetaw/dream-destination" class="btn btn-primary">github repo</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">maps vr</h5>
+                  <span class="badge badge-pill badge-secondary">html</span>
+                  <span class="badge badge-pill badge-dark">css</span>
+                  <span class="badge badge-pill badge-primary">javascript</span>
+                  <span class="badge badge-pill badge-danger">a-frame</span>
+                  <p class="card-text">a web app dedicated to helping people with physical disabilities navigate the insides
+                    of a building through a virtual reality experience
+                  </p>
+                  <h6 class="card-subtitle mb-2 text-muted"> built at kode with klossy lvl 2 2018</h6>
+                  <a href="https://github.com/areetaw/maps-vr" class="btn btn-primary">github repo</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- second row: reddit android app, dream destination, and maps vr -->
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">reddit</h5>
-                <span class="badge badge-pill badge-success">android studio</span>
-                <span class="badge badge-pill badge-primary">java</span>
-                <span class="badge badge-pill badge-warning">firebase</span>
-                <p class="card-text">a mobile app that mocks <a class="link" href="https://reddit.com/">reddit</a> 
-                with a thread where user can add, search, and delete messeges or sub-messages through a database
-                </p>
-                <h6 class="card-subtitle mb-2 text-muted">built at ics 45j fall 2019</h6>
-                <a href="https://github.com/areetaw/ics-45j/tree/master/Lab5" class="btn btn-primary">github repo</a>
-              </div>
+      <!-- skills -->
+      <section id="skills">
+        <div class="jumbotron text-left">
+          <div class="mx-5 mx-xl-5">
+            <div class="row" style="margin-left: 0px">
+              <img class="icons" src="images/svg/icons8-toolbox.svg">           
+              <h2>skills</h2>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">dream destination</h5>
-                <span class="badge badge-pill badge-light">python</span>
-                <span class="badge badge-pill badge-danger">jinja</span>
-                <span class="badge badge-pill badge-secondary">html</span>
-                <span class="badge badge-pill badge-dark">css</span>
-                <span class="badge badge-pill badge-info">yelp api</span>
-                <p class="card-text">a travel web app where users submit a form and get matched 
-                with a dream vacation spot along with food, lodging, and activities recommendations 
-                </p>
-                <h6 class="card-subtitle mb-2 text-muted">built at cssi mtv 2018</h6>
-                <a href="https://github.com/areetaw/dream-destination" class="btn btn-primary">github repo</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">maps vr</h5>
-                <span class="badge badge-pill badge-secondary">html</span>
-                <span class="badge badge-pill badge-dark">css</span>
-                <span class="badge badge-pill badge-primary">javascript</span>
-                <span class="badge badge-pill badge-danger">a-frame</span>
-                <p class="card-text">a web app dedicated to help people with physical disabilities navigate the inside of a building
-                through an immersive virtual reality experience
-                </p>
-                <h6 class="card-subtitle mb-2 text-muted"> built at kode with klossy lvl 2 2018</h6>
-                <a href="https://github.com/areetaw/maps-vr" class="btn btn-primary">github repo</a>
-              </div>
-            </div>
+            <p><b>programming:</b> python, java, html, css, git, c++, and sql</p>
+            <p><b>tools:</b> google drive, microsoft office, and canva</p>
+            <p><b>other:</b> leadership, organization, sponsorship, community outreach, public speaking, and teaching</p>
+            <p><b>currently dabbling with:</b> react, javascript, and figma</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- skills -->
-    <section id="timeline">
-      <div class="jumbotron text-left">
-        <div class="mx-5 mx-xl-5">
-          <div class="row" style="margin-left: 0px">
-            <img class="icons" src="images/svg/icons8-toolbox.svg">           
-            <h2>skills</h2>
-          </div>
-          <p><b>programming:</b> python, java, html, css, git, c++, and sql</p>
-          <p><b>tools:</b> google drive, microsoft office, and canva</p>
-          <p><b>other:</b> leadership, organization, sponsorship, community outreach, public speaking, and teaching</p>
-          <p><b>currently dabbling with:</b> react, javascript, and figma</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- images -->
-    <section id="images">
-      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="images/google2017.jpg" class="d-block w-100" alt="picture of friend and me at google hq">
+      <!-- images -->
+      <section id="images">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="7"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/google2017.jpg" class="d-block w-100" alt="picture of friend and me at google hq">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>google hq, mountain view, ca</h5>
+                <p>my first time at the google headquarters campus</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/cssi.jpg" class="d-block w-100" alt="cssi class at google hq">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>google hq, mountain view, ca</h5>
+                <p>cssi 2018 camp</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/banquet.jpg" class="d-block w-100" alt="picture of pi class at banquet 2019">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>orange county mining co., orange county, ca</h5>
+                <p>theta tau 2019 banquet</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/retreat.jpg" class="d-block w-100" alt="group pic of hack at retreat 2019">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>big bear lake, ca</h5>
+                <p>hack at uci's very first retreat</p>
+              </div>
+            </div>
+          <div class="carousel-item">
+            <img src="images/kqed.jpg" class="d-block w-100" alt="pic of directors at kqed event">
             <div class="carousel-caption d-none d-md-block">
-              <h5>google hq, mountain view, ca</h5>
-              <p>my first time at the google headquarters campus</p>
+              <h5>kqed, san jose, ca</h5>
+              <p>winning an award for superposition</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="images/cssi.jpg" class="d-block w-100" alt="cssi class at google hq">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>google hq, mountain view, ca</h5>
-              <p>cssi 2018 camp</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="images/banquet.jpg" class="d-block w-100" alt="picture of pi class at banquet 2019">
+            <img src="images/sith.jpg" class="d-block w-100" alt="pic of sith family at banquet 2019">
             <div class="carousel-caption d-none d-md-block">
               <h5>orange county mining co., orange county, ca</h5>
-              <p>theta tau 2019 banquet</p>
+              <p>my family in theta tau</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="images/retreat.jpg" class="d-block w-100" alt="group pic of hack at retreat 2019">
+            <img src="images/superpos.jpg" class="d-block w-100" alt="pic of directors at superpos 2">
             <div class="carousel-caption d-none d-md-block">
-              <h5>big bear lake, ca</h5>
-              <p>hack at uci's very first retreat</p>
+              <h5>horizons school of technology, san francisco, ca</h5>
+              <p>lead directors at superposition 2</p>
+          </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/hshacks.jpg" class="d-block w-100" alt="pic of organizers at hshacks 3">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>42 university, fremont, ca</h5>
+              <p>organizers at hshacks 3</p>
             </div>
           </div>
-        <div class="carousel-item">
-          <img src="images/kqed.jpg" class="d-block w-100" alt="pic of directors at kqed event">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>kqed, san jose, ca</h5>
-            <p>winning an award for superposition</p>
+          </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+      </div>
+      </section>
+
+      <!-- journey -->
+      <section id="journey">
+        <div class="jumbotron text-left" style="background-color: #898CAE; color: #000000;">
+          <div class="mx-5 mx-xl-5">
+            <div class="row" style="margin-left: 0px">
+              <img class="icons" src="images/svg/icons8-search.svg">           
+              <h2 style="color: #FFFFFF">journey</h2>
+            </div>
+            <div class="timeline">
+              <div class="container left">
+                <div class="content">
+                  <h4>june 2020</h4>
+                  <p style="margin-bottom: 0px;">second internship @ google as a step intern</p>
+                </div>
+              </div>
+              <div class="container right">
+                <div class="content">
+                  <h4>june 2019</h4>
+                  <p style="margin-bottom: 0px;">first internship @ amazon as an amzon future engineer sde intern</p>
+                </div>
+              </div>
+              <div class="container left">
+                <div class="content">
+                  <h4>july 2018</h4>
+                  <p style="margin-bottom: 0px;">first time at google @ cssi summer program</p>
+                </div>
+              </div>
+              <div class="container right">
+                <div class="content">
+                  <h4>june 2016</h4>
+                  <p style="margin-bottom: 0px;">first time coding @ girls who code summer immersion program</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="images/sith.jpg" class="d-block w-100" alt="pic of sith family at banquet 2019">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>orange county mining co., orange county, ca</h5>
-            <p>my family in theta tau</p>
+      </section>
+
+      <!-- hobbies -->
+      <section id="hobbies">
+        <div class="jumbotron text-left" style="color: #000000;">
+          <div class="mx-5 mx-xl-5">
+            <div class="row" style="margin-left: 0px">
+              <img class="icons" src="images/svg/icons8-plus.svg">           
+              <h2>hobbies + interests</h2>
+            </div>
+            <div class="card-deck">
+              <div class="card">
+                <img src="images/youtube.png" class="card-img-top" alt="pic of la trip video on youtube">
+                <div class="card-body">
+                  <h5 class="card-title">vlogging/photography</h5>
+                  <p class="card-text">i love capturing memories and looking back on them</p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="images/taiwan.jpg" class="card-img-top" alt="pic of taiwan shi fen">
+                <div class="card-body">
+                  <h5 class="card-title">traveling</h5>
+                  <p class="card-text">i love going on adventures with family and friends</p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="images/sushi.jpg" class="card-img-top" alt="pic of sushi boat">
+                <div class="card-body">
+                  <h5 class="card-title">eating</h5>
+                  <p class="card-text">i love eating foods from a variety of cultures</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="images/superpos.jpg" class="d-block w-100" alt="pic of directors at superpos 2">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>horizons school of technology, san francisco, ca</h5>
-            <p>lead directors at superposition 2</p>
-        </div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/hshacks.jpg" class="d-block w-100" alt="pic of organizers at hshacks 3">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>42 university, fremont, ca</h5>
-            <p>organizers at hshacks 3</p>
-          </div>
-        </div>
-        </div>
-          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+      </section>
+      <div class="footer" style="text-align: center; margin: 2rem;">
+        <p>created with ♡ by areeta wong</p>
+        <p>© copyright 2020</p>
+      </div>
     </div>
-    </section>
-
-    <!-- journey -->
-    <section id="journey">
-      <div class="jumbotron text-left" style="background-color: #898CAE; color: #FFFFFF;">
-        <div class="mx-5 mx-xl-5">
-          <div class="row" style="margin-left: 0px">
-            <img class="icons" src="images/svg/icons8-search.svg">           
-            <h2>journey</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- hobbies -->
-    <section id="hobbies">
-      <div class="jumbotron text-left" style="color: #000000;">
-        <div class="mx-5 mx-xl-5">
-          <div class="row" style="margin-left: 0px">
-            <img class="icons" src="images/svg/icons8-plus.svg">           
-            <h2>hobbies + interests</h2>
-          </div>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </div>
-    </section>
 
     <!-- bootstrap js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
