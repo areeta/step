@@ -42,8 +42,8 @@ function handleOnScroll() {
 /**
  * Adds comments.
  */
-function getRandomQuote() {
-  fetch('/data').then(response => response.text()).then((quote) => {
-    document.getElementById('quote-container').innerText = quote;
+function getComments() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+    document.getElementById('quote-container').innerText = comments;
   });
 }
