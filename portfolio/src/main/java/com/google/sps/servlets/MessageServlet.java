@@ -14,6 +14,7 @@
 
 package com.google.sps.servlets;
 
+import com.google.sps.data.Message;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. */
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
+/** Servlet that creates a new Message */
+@WebServlet("/new-message")
+public class MessageServlet extends HttpServlet {
   
   private ArrayList<String> messages;
 
