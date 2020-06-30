@@ -42,8 +42,8 @@ function handleOnScroll() {
 /**
  * Adds comments.
  */
-function getComments() {
-  fetch('/data').then(response => response.json()).then((comments) => {
-    document.getElementById('quote-container').innerText = comments;
+function getMessages() {
+  fetch('/data').then(response => response.json()).then((message) => {
+    document.getElementById('message-container').innerText = message;
   });
 }

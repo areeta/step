@@ -22,21 +22,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that returns some example content. TODO: modify this file to handle messages data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   
-  private ArrayList<String> comments;
+  private ArrayList<String> messages;
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-    // Convert the comments to JSON
-    comments = new ArrayList<>();
-    comments.add("boop bop beep");
-    comments.add("bopity beep boop");
-    comments.add("beep boop bop");
-    String json = convertToJsonUsingGson(comments);
+    // Convert the messages to JSON
+    messages = new ArrayList<>();
+    messages.add("boop bop beep");
+    messages.add("bopity beep boop");
+    messages.add("beep boop bop");
+    String json = convertToJsonUsingGson(messages);
 
     // Send the JSON as the response
     response.setContentType("application/json;");
