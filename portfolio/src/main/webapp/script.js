@@ -40,7 +40,7 @@ function handleOnScroll() {
 }
 
 /**
- * Adds comments.
+ * Adds messages.
  */
 function getMessages() {
   fetch('/data').then(response => response.json()).then((message) => {
