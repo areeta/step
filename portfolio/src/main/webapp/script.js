@@ -27,7 +27,9 @@ function addRandomFact() {
   factContainer.innerText = fact;
 }
 
-
+/**
+ * Adds scroll bar to show progress of page scroll.
+ */
 window.onscroll = function() {handleOnScroll()};
 
 function handleOnScroll() {
@@ -35,4 +37,13 @@ function handleOnScroll() {
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   var scrolled = (winScroll / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
+}
+
+/**
+ * Adds comments.
+ */
+function getRandomQuote() {
+  fetch('/data').then(response => response.text()).then((quote) => {
+    document.getElementById('quote-container').innerText = quote;
+  });
 }
