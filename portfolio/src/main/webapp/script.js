@@ -26,10 +26,18 @@ function handleOnScroll() {
 }
 
 /**
- * Adds messages.
+ * Adds posts.
  */
-function getMessages() {
-  fetch('/new-message').then(response => response.json()).then((message) => {
-    document.getElementById('message-container').innerText = message;
+function getPosts() {
+  fetch('/posts').then(response => response.json()).then((posts) => {
+
+    // Include data of one Post.
+    if (posts.length > 0) {
+      const post = document.getElementById('posts-container');
+      post.innerText = "first name: " + posts[0]["firstName"];
+      post.innerText += "last name: " + posts[0]["lastName"];
+      post.innerText += "email: " + posts[0]["email"];
+      post.innerText += "message: " + posts[0]["message"];
+    }
   });
 }

@@ -15,10 +15,10 @@
 package com.google.sps.data;
 
 /**
- * Class representing a message from a user.
+ * Class representing a post from a user.
  * Note: The private variables in this class are converted into JSON.
  */
-public class Message {
+public class Post {
 
   /** Information from the user */
   private String firstName;
@@ -26,7 +26,7 @@ public class Message {
   private String email;
   private String message;
 
-  public Message(String firstName, String lastName, String email, String message) {
+  public Post(String firstName, String lastName, String email, String message) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
