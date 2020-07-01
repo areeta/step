@@ -35,9 +35,9 @@ function getPosts() {
     if (posts.length > 0) {
       const post = document.getElementById('posts-container');
       post.innerText = "first name: " + posts[0]["firstName"];
-      post.innerText += "last name: " + posts[0]["lastName"];
-      post.innerText += "email: " + posts[0]["email"];
-      post.innerText += "message: " + posts[0]["message"];
+      post.innerText += " last name: " + posts[0]["lastName"];
+      post.innerText += " email: " + posts[0]["email"];
+      post.innerText += " message: " + posts[0]["message"];
     }
   });
 }
