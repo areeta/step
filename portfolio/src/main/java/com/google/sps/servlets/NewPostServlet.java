@@ -14,6 +14,9 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.sps.data.Post;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -23,48 +26,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that creates a new Post*/
-@WebServlet("/posts")
-public class PostServlet extends HttpServlet {
-  
-  private ArrayList<Post> posts = new ArrayList<Post>();
+/** Servlet responsible for creating new post. */
+@WebServlet("/new-post")
+public class NewPostServlet extends HttpServlet {
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    // Convert the posts to JSON.
-    String json = convertToJsonUsingGson(posts);
-
-    // Send the JSON as the response
-    response.setContentType("application/json;");
-    response.getWriter().println(json);
-  }
-  
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+   
     // Get the input from the form.
     String firstName = getParameter(request, "firstName", "");
     String lastName = getParameter(request, "lastName", "");
     String email = getParameter(request, "email", "");
     String message = getParameter(request, "message", "");
 
-    // Create Post object.
-    Post post = new Post(firstName, lastName, email, message);
-    posts.add(post);
+    // Create an Entity type Post.
+    Entity postEntity = new Entity("Post");
+    postEntity.setProperty("firstName", firstName);
+    postEntity.setProperty("lastName", lastName);
+    postEntity.setProperty("email", email);
+    postEntity.setProperty("message", message);
 
-    // Redirect back to the HTML page.
+    // Store the Post in Datastore.
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(postEntity);
+
     response.sendRedirect("/index.html");
-  }
-
-  /**
-   * Converts a Post instance into a JSON string using the Gson library. Note: We first added
-   * the Gson library dependency to pom.xml.
-  */
-  private String convertToJsonUsingGson(ArrayList<Post> arrayList) {
-    Gson gson = new Gson();
-    String json = gson.toJson(arrayList);
-    return json;
   }
 
   /**

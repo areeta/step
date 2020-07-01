@@ -16,36 +16,19 @@ package com.google.sps.data;
 
 /**
  * Class representing a post from a user.
- * Note: The private variables in this class are converted into JSON.
  */
 public class Post {
 
   /** Information from the user */
-  private String firstName;
-  private String lastName;
-  private String email;
-  private String message;
+  private final String firstName;
+  private final String lastName;
+  private final String email;
+  private final String message;
 
   public Post(String firstName, String lastName, String email, String message) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.message = message;
-  }
-
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public String getLastName() {
-    return lastName;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public String getMessage() {
-    return message;
   }
 }
