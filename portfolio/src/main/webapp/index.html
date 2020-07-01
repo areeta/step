@@ -22,7 +22,7 @@
       <title>Areeta Wong</title>
       <link rel="icon" href="images/svg/icons8-female-user.svg">
   </head>
-  <body>
+  <body onload="getPosts()">
     
     <div class="header">
       <div class="progress-container">
@@ -386,16 +386,34 @@
               <img class="icons" src="images/svg/icons8-edit.svg">           
               <h2>contact me</h2>
             </div>
-            <div id="content">
-              <button onclick="getMessages()">message!</button>
-              <div id="message-container"></div>
-            </div>
+            <form action="/posts" method="POST">
+              <div class="form-row">
+                <div class="col-md-4">
+                  <label for="validationDefault01">first name</label>
+                  <input type="text" class="form-control" id="validationDefault01" name="firstName" placeholder="john" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault02">last name</label>
+                  <input type="text" class="form-control" id="validationDefault02" name="lastName" placeholder="doe"required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault03">email</label>
+                  <input type="text" class="form-control" id="validationDefault03" name="email" placeholder="johndoe@gmail.com"required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="validationTextarea">message</label>
+                <textarea class="form-control" id="validationTextarea" name="message" placeholder="hello!" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">submit form</button>
+            </form>
+            <div id="posts-container"></div>
           </div>
         </div>
       </section>
 
       <!-- footer -->
-      <div class="footer" style="text-align: center; margin: 2rem;">
+      <div class="jumbotron text-center" style="color: #000000;">
         <p>created with ♡ by areeta wong</p>
         <p>© copyright 2020</p>
       </div>
