@@ -13,9 +13,7 @@
 // limitations under the License.
 
 
-/**
- * Adds scroll bar to show progress of page scroll.
- */
+/** Adds scroll bar to show progress of page scroll.  */
 window.onscroll = function() {handleOnScroll()};
 
 function handleOnScroll() {
@@ -25,19 +23,25 @@ function handleOnScroll() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-/**
- * Adds posts.
- */
+/** Fetches posts from the server and adds them to the DOM. */
 function getPosts() {
-  fetch('/posts').then(response => response.json()).then((posts) => {
-
-    // Include data of one Post.
-    if (posts.length > 0) {
-      const post = document.getElementById('posts-container');
-      post.innerText = "first name: " + posts[0]["firstName"];
-      post.innerText += " last name: " + posts[0]["lastName"];
-      post.innerText += " email: " + posts[0]["email"];
-      post.innerText += " message: " + posts[0]["message"];
-    }
+  fetch('/list-posts').then(response => response.json()).then((posts) => {
+    const postListElement = document.getElementById('posts-list');
+    console.log("reached list-post" + posts);
+    posts.forEach((post) => {
+      postListElement.appendChild(createPostElement(post));
+    })
   });
+}
+
+/** Creates an element that represents a post. */
+function createPostElement(post) {
+  const postElement = document.createElement('li');
+  postElement.className = 'post';
+
+  const firstNameElement = document.createElement('span');
+  firstNameElement.innerText = post.firstName;
+
+  postElement.appendChild(firstNameElement);
+  return postElement;
 }
