@@ -2,8 +2,8 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #898cae;
-  font-family: 'Muli', 
-  sans-serif;
+  font-family: 'Muli',
+    sans-serif;
   color: #fff;
   font-size: 18px;
 }
@@ -27,8 +27,10 @@ a {
   color: #898cae;
 }
 
-a:link, a:visited, a:hover {
-  text-decoration: none;
+a:link, 
+  a:visited, 
+    a:hover {
+      text-decoration: none;
 }
 
 a #link {
@@ -66,7 +68,7 @@ a #link {
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.5); 
+  background-color: #ffffff80;
   color: #000;
   margin-bottom: 1rem;
 }
@@ -77,12 +79,12 @@ a #link {
   border-color: #fff;
 }
 
-.icons { 
+.icons {
   display: inline-block;
   width: 64px;
   height: 64px;
   margin-right: 1rem;
-  background-size: 100%; 
+  background-size: 100%;
 }
 
 .timeline {
@@ -104,8 +106,8 @@ a #link {
   position: relative;
   background-color: inherit;
   width: 50%;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .container::after {
@@ -172,14 +174,14 @@ a #link {
   .timeline::after {
     left: 31px;
   }
-  
+
   /* Full-width containers */
   .container {
     width: 120%;
     padding-left: 70px;
     padding-right: 25px;
   }
-  
+
   /* Make sure that all arrows are pointing leftwards */
   .container::before {
     left: 60px;
@@ -189,8 +191,9 @@ a #link {
   }
 
   /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
-    left: 20px;
+  .left::after,
+    .right::after {
+      left: 20px;
   }
 
   /* Make all right containers behave like the left ones */
@@ -226,7 +229,7 @@ a #link {
 .post {
   padding-left: 1rem;
   padding-top: 1rem;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
   margin-top: 1rem;
   background-color: #ffffff80;
   border-radius: 6px;
