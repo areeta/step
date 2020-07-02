@@ -1,9 +1,11 @@
-html, body {
+html, 
+body {
   margin: 0;
   padding: 0;
   background-color: #898cae;
-  font-family: 'Muli',
-    sans-serif;
+  font-family: 
+    'Muli',
+      sans-serif;
   color: #fff;
   font-size: 18px;
 }
@@ -27,10 +29,10 @@ a {
   color: #898cae;
 }
 
-a:link, 
-  a:visited, 
-    a:hover {
-      text-decoration: none;
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
 }
 
 a #link {
@@ -192,8 +194,8 @@ a #link {
 
   /* Make sure all circles are at the same spot */
   .left::after,
-    .right::after {
-      left: 20px;
+  .right::after {
+    left: 20px;
   }
 
   /* Make all right containers behave like the left ones */
