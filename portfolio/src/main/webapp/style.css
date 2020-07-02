@@ -221,3 +221,13 @@ a #link {
   background: #384580;
   width: 0%;
 }
+
+.post {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+  margin-top: 1rem;
+  background-color: #ffffff80;
+  border-radius: 6px;
+  overflow-wrap: break-word;
+}

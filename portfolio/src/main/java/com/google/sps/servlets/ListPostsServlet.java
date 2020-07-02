@@ -40,7 +40,7 @@ public class ListPostsServlet extends HttpServlet {
     // Create Post Query instance.
     Query query = new Query("Post");
 
-    // Find all Post entities in Datasotre.
+    // Find all Post entities in Datastore.
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 

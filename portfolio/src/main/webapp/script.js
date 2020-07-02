@@ -26,8 +26,7 @@ function handleOnScroll() {
 /** Fetches posts from the server and adds them to the DOM. */
 function getPosts() {
   fetch('/list-posts').then(response => response.json()).then((posts) => {
-    const postListElement = document.getElementById('posts-list');
-    console.log("reached list-post" + posts);
+    const postListElement = document.getElementById('posts');
     posts.forEach((post) => {
       postListElement.appendChild(createPostElement(post));
     })
@@ -36,12 +35,19 @@ function getPosts() {
 
 /** Creates an element that represents a post. */
 function createPostElement(post) {
-  const postElement = document.createElement('li');
-  postElement.className = 'post';
+  
+  const postElement = document.createElement('div');
+  postElement.setAttribute("class", "post");
 
-  const firstNameElement = document.createElement('span');
-  firstNameElement.innerText = post.firstName;
+  // Add user contact information to post.
+  const contactElement = document.createElement('h5');
+  contactElement.innerText = post.firstName + " " + post.lastName + " • " + post.email;
 
-  postElement.appendChild(firstNameElement);
+  // Add user message to post.
+  const messageElement = document.createElement('p');
+  messageElement.innerText = post.message;
+
+  postElement.appendChild(contactElement);
+  postElement.appendChild(messageElement);
   return postElement;
 }
