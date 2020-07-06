@@ -1,10 +1,13 @@
-html, body {
+html,
+body {
+  background-color: #898cae;
+  color: #fff;
+  font-family:
+    'Muli',
+    sans-serif;
+  font-size: 18px;
   margin: 0;
   padding: 0;
-  background-color: #898cae;
-  font-family: 'Muli', sans-serif;
-  color: #FFFFFF;
-  font-size: 18px;
 }
 
 h1 {
@@ -13,31 +16,33 @@ h1 {
 }
 
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 h2 {
-  margin-top: 1rem;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 a {
   color: #898cae;
 }
 
-a:link, a:visited, a:hover {
+a:link,
+a:visited,
+a:hover {
   text-decoration: none;
 }
 
 a #link {
-  color: #000000;
+  color: #000;
 }
 
 .jumbotron {
-  color: #000000;
-  padding: 3rem 2rem;
+  color: #000;
   margin: 0;
+  padding: 3rem 2rem;
 }
 
 .page {
@@ -45,19 +50,19 @@ a #link {
 }
 
 #socials {
-  margin: 2rem 2rem 0 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   font-size: 2rem;
+  justify-content: space-between;
+  margin: 2rem 2rem 0 2rem;
 }
 
 .fa {
-  padding: 0.7rem;
+  color: #000;
   font-size: 1.5rem !important;
+  padding: 0.7rem;
   text-align: center;
   text-decoration: none;
-  color: #000000;
 }
 
 .fa:hover {
@@ -65,23 +70,23 @@ a #link {
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.5); 
-  color: #000000;
+  background-color: #ffffff80;
+  color: #000;
   margin-bottom: 1rem;
 }
 
 .btn-primary {
-  color: #ffffff;
   background-color: #898cae;
-  border-color: #ffffff;  
+  border-color: #fff;
+  color: #fff;
 }
 
-.icons { 
+.icons {
+  background-size: 100%;
   display: inline-block;
-  width: 64px;
   height: 64px;
   margin-right: 1rem;
-  background-size: 100%; 
+  width: 64px;
 }
 
 .timeline {
@@ -89,34 +94,34 @@ a #link {
 }
 
 .timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: white;
-  top: 0;
+  background-color: #fff;
   bottom: 0;
+  content: '';
   left: 50%;
+  position: absolute;
+  top: 0;
+  width: 6px;
 }
 
 .container {
+  background-color: inherit;
+  margin-left: 0;
+  margin-right: 0;
   padding: 10px 40px;
   position: relative;
-  background-color: inherit;
   width: 50%;
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 .container::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -15px;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 4px solid #c0b6b6;
-  top: 15px;
   border-radius: 50%;
+  content: '';
+  height: 25px;
+  position: absolute;
+  right: -15px;
+  top: 15px;
+  width: 25px;
   z-index: 1;
 }
 
@@ -129,29 +134,29 @@ a #link {
 }
 
 .left::before {
+  border: medium solid #ffffff80;
+  border-color: transparent transparent transparent #ffffff80;
+  border-width: 10px 0 10px 10px;
   content: " ";
   height: 0;
+  left: 30px;
   position: absolute;
   top: 22px;
   width: 0;
   z-index: 1;
-  right: 30px;
-  border: medium solid #ffffff80;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #ffffff80;
 }
 
 .right::before {
+  border: medium solid #ffffff80;
+  border-color: transparent #ffffff80 transparent transparent;
+  border-width: 10px 10px 10px 0;
   content: " ";
   height: 0;
+  left: 30px;
   position: absolute;
   top: 22px;
   width: 0;
   z-index: 1;
-  left: 30px;
-  border: medium solid #ffffff80;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #ffffff80 transparent transparent;
 }
 
 .right::after {
@@ -159,10 +164,10 @@ a #link {
 }
 
 .content {
-  padding: 10px 20px;
   background-color: #ffffff80;
-  position: relative;
   border-radius: 6px;
+  padding: 10px 20px;
+  position: relative;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -171,39 +176,40 @@ a #link {
   .timeline::after {
     left: 31px;
   }
-  
+
   /* Full-width containers */
   .container {
-    width: 120%;
     padding-left: 70px;
     padding-right: 25px;
+    width: 120%;
   }
-  
+
   /* Make sure that all arrows are pointing leftwards */
   .container::before {
-    left: 60px;
     border: medium solid #ffffff80;
-    border-width: 10px 10px 10px 0;
     border-color: transparent #ffffff80 transparent transparent;
+    border-width: 10px 10px 10px 0;
+    left: 60px;
   }
 
   /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
+  .left::after,
+  .right::after {
     left: 20px;
   }
-  
+
   /* Make all right containers behave like the left ones */
-    .right {
+  .right {
     left: 0%;
   }
 }
 
 .header {
+  background-color: #f1f1f1;
   position: fixed;
   top: 0;
-  z-index: 1;
   width: 100%;
-  background-color: #f1f1f1;
+  z-index: 1;
 }
 
 .header h2 {
@@ -211,13 +217,23 @@ a #link {
 }
 
 .progress-container {
-  width: 100%;
+  background: #ccc;
   height: 8px;
-  background: #cccccc;
+  width: 100%;
 }
 
 .progress-bar {
-  height: 8px;
   background: #384580;
+  height: 8px;
   width: 0%;
+}
+
+.post {
+  background-color: #ffffff80;
+  border-radius: 6px;
+  margin-top: 1rem;
+  overflow-wrap: break-word;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
