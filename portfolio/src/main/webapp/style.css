@@ -42,7 +42,7 @@ a #link {
 .jumbotron {
   color: #000;
   margin: 0;
-  padding: 3rem 2rem;
+  padding: 2rem 1rem;
 }
 
 .page {
@@ -103,7 +103,7 @@ a #link {
   width: 6px;
 }
 
-.container {
+.timeline-container {
   background-color: inherit;
   margin-left: 0;
   margin-right: 0;
@@ -112,7 +112,7 @@ a #link {
   width: 50%;
 }
 
-.container::after {
+.timeline-container::after {
   background-color: #fff;
   border: 4px solid #c0b6b6;
   border-radius: 50%;
@@ -139,7 +139,7 @@ a #link {
   border-width: 10px 0 10px 10px;
   content: " ";
   height: 0;
-  left: 30px;
+  right: 30px;
   position: absolute;
   top: 22px;
   width: 0;
@@ -163,7 +163,7 @@ a #link {
   left: -10px;
 }
 
-.content {
+.timeline-content {
   background-color: #ffffff80;
   border-radius: 6px;
   padding: 10px 20px;
@@ -178,14 +178,14 @@ a #link {
   }
 
   /* Full-width containers */
-  .container {
+  .timeline-container {
     padding-left: 70px;
     padding-right: 25px;
     width: 120%;
   }
 
   /* Make sure that all arrows are pointing leftwards */
-  .container::before {
+  .timeline-container::before {
     border: medium solid #ffffff80;
     border-color: transparent #ffffff80 transparent transparent;
     border-width: 10px 10px 10px 0;
@@ -236,4 +236,10 @@ a #link {
   padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-top: 1rem;
+}
+
+#map {
+  border: thin solid black;
+  height: 30rem;
+  width: 100%
 }
