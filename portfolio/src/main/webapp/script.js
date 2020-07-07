@@ -25,7 +25,7 @@ function handleOnScroll() {
 
 /** Fetches posts from the server and adds them to the DOM. */
 function getPosts() {
-  fetch('/list-posts').then(response => response.json()).then((posts) => {
+  fetch('/post').then(response => response.json()).then((posts) => {
     const postListElement = document.getElementById('posts');
     posts.forEach((post) => {
       postListElement.appendChild(createPostElement(post));

@@ -30,10 +30,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet responsible for listing posts. */
-@WebServlet("/list-posts")
-public class ListPostsServlet extends HttpServlet {
+@WebServlet("/post")
+public class PostDataServlet extends HttpServlet {
 
+  /** Responsible for creating new post. */
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+   
+    // Get the input from the form.
+    String firstName = getParameter(request, "firstName", "");
+    String lastName = getParameter(request, "lastName", "");
+    String email = getParameter(request, "email", "");
+    String message = getParameter(request, "message", "");
+
+    // Create an Entity type Post.
+    Entity postEntity = new Entity("Post");
+    postEntity.setProperty("firstName", firstName);
+    postEntity.setProperty("lastName", lastName);
+    postEntity.setProperty("email", email);
+    postEntity.setProperty("message", message);
+
+    // Store the Post in Datastore.
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(postEntity);
+
+    response.sendRedirect("/index.html");
+  }
+
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+  */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
+
+  /** Responsible for listing posts. */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
