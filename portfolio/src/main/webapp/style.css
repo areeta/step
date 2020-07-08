@@ -239,7 +239,7 @@ a #link {
 }
 
 #map {
-  border: thin solid black;
+  border: thin solid #ccc;
   height: 30rem;
-  width: 100%
+  width: 100%;
 }
