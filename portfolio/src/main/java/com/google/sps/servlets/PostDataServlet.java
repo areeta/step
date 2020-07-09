@@ -19,7 +19,6 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.cloud.language.v1.Document;
 import com.google.cloud.language.v1.LanguageServiceClient;
 import com.google.cloud.language.v1.Sentiment;
@@ -71,7 +70,7 @@ public class PostDataServlet extends HttpServlet {
       datastore.put(postEntity);
       response.sendRedirect("/index.html");
     } else {
-      
+
       // Add error message to let user know their words aren't appropriate.
       response.setContentType("text/html;");
       response.getWriter().println("<h1>Sentiment Analysis</h1>");
