@@ -14,8 +14,8 @@
 
 package com.google.sps.servlets;
 
-import com.google.sps.data.Marker;
 import com.google.gson.Gson;
+import com.google.sps.data.Marker;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,7 +25,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Returns Marker data as a JSON array, e.g. [{"lat": 38.4404675, "lng": -122.7144313, "content": "tokyo, japan"}] */
+/**
+ * Returns Marker data as a JSON array, e.g. [{"lat": 38.4404675, "lng": -122.7144313, "content":
+ * "tokyo, japan"}]
+ */
 @WebServlet("/marker-data")
 public class MarkerDataServlet extends HttpServlet {
 
@@ -36,7 +39,8 @@ public class MarkerDataServlet extends HttpServlet {
     markers = new ArrayList<>();
 
     /** Iterate through entire CSV file to get every location. */
-    Scanner scanner = new Scanner(getServletContext().getResourceAsStream("/WEB-INF/marker-data.csv"));
+    Scanner scanner =
+        new Scanner(getServletContext().getResourceAsStream("/WEB-INF/marker-data.csv"));
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine();
       String[] row = line.split(",");
