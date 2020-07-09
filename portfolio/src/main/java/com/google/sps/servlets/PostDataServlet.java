@@ -62,7 +62,7 @@ public class PostDataServlet extends HttpServlet {
     languageService.close();
 
     response.setStatus(200);
-    esponse.getWriter().println(sentimentScore);
+    response.getWriter().println(sentimentScore);
 
     if (sentimentScore > 0.0) {
 
