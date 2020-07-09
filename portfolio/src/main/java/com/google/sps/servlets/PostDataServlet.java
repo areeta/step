@@ -19,7 +19,6 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.gson.Gson;
 import com.google.sps.data.Post;
 import java.io.IOException;
@@ -36,7 +35,7 @@ public class PostDataServlet extends HttpServlet {
   /** Responsible for creating new post. */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-   
+
     // Get the input from the form.
     String firstName = getParameter(request, "firstName", "");
     String lastName = getParameter(request, "lastName", "");
@@ -58,9 +57,9 @@ public class PostDataServlet extends HttpServlet {
   }
 
   /**
-   * @return the request parameter, or the default value if the parameter
-   *         was not specified by the client
-  */
+   * @return the request parameter, or the default value if the parameter was not specified by the
+   *     client
+   */
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
     if (value == null) {
@@ -72,7 +71,7 @@ public class PostDataServlet extends HttpServlet {
   /** Responsible for listing posts. */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
+
     // Create Post Query instance.
     Query query = new Query("Post");
 

@@ -14,13 +14,12 @@
 
 package com.google.sps.data;
 
-/**
- * Class representing a post from a user.
- */
+/** Class representing a post from a user. */
 public class Post {
 
   /** Information from the user */
   private final String firstName;
+
   private final String lastName;
   private final String email;
   private final String message;
