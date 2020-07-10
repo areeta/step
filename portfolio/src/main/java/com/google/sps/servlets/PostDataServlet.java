@@ -19,7 +19,9 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import com.google.gson.Gson;
 import com.google.sps.data.Post;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class PostDataServlet extends HttpServlet {
   /** Responsible for creating new post. */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-   
+
     // Get the input from the form.
     String firstName = getParameter(request, "firstName", "");
     String lastName = getParameter(request, "lastName", "");
@@ -50,17 +52,38 @@ public class PostDataServlet extends HttpServlet {
     postEntity.setProperty("email", email);
     postEntity.setProperty("message", message);
 
-    // Store the Post in Datastore.
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(postEntity);
+    // Determine if message is appropriate for posting.
+    Document doc =
+        Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    float sentimentScore = sentiment.getScore();
+    languageService.close();
 
-    response.sendRedirect("/index.html");
+    response.setStatus(200);
+    response.getWriter().println(sentimentScore);
+
+    if (sentimentScore > 0.0) {
+
+      // Store the Post in Datastore and refresh page.
+      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      datastore.put(postEntity);
+      response.sendRedirect("/index.html");
+    } else {
+
+      // Add error message to let user know their words aren't appropriate.
+      response.setContentType("text/html;");
+      response.getWriter().println("<h1>Sentiment Analysis</h1>");
+      response.getWriter().println("<p>You entered: " + message + "</p>");
+      response.getWriter().println("<p>Sentiment analysis score: " + sentimentScore + "</p>");
+      response.getWriter().println("<p><a href=\"/\">Back</a></p>");
+    }
   }
 
   /**
-   * @return the request parameter, or the default value if the parameter
-   *         was not specified by the client
-  */
+   * @return the request parameter, or the default value if the parameter was not specified by the
+   *     client
+   */
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {
     String value = request.getParameter(name);
     if (value == null) {
@@ -72,7 +95,7 @@ public class PostDataServlet extends HttpServlet {
   /** Responsible for listing posts. */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
+
     // Create Post Query instance.
     Query query = new Query("Post");
 
