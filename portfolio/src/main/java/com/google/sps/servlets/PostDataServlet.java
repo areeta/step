@@ -45,39 +45,26 @@ public class PostDataServlet extends HttpServlet {
     String email = getParameter(request, "email", "");
     String message = getParameter(request, "message", "");
 
+    // Determine sentiment score using Google Natural Langugage API.
+    Document doc =
+        Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    Double sentimentScore = (double) sentiment.getScore();
+    languageService.close();
+
     // Create an Entity type Post.
     Entity postEntity = new Entity("Post");
     postEntity.setProperty("firstName", firstName);
     postEntity.setProperty("lastName", lastName);
     postEntity.setProperty("email", email);
     postEntity.setProperty("message", message);
+    postEntity.setProperty("sentimentScore", sentimentScore);
 
-    // Determine if message is appropriate for posting.
-    Document doc =
-        Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
-    LanguageServiceClient languageService = LanguageServiceClient.create();
-    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-    float sentimentScore = sentiment.getScore();
-    languageService.close();
-
-    response.setStatus(200);
-    response.getWriter().println(sentimentScore);
-
-    if (sentimentScore > 0.0) {
-
-      // Store the Post in Datastore and refresh page.
-      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-      datastore.put(postEntity);
-      response.sendRedirect("/index.html");
-    } else {
-
-      // Add error message to let user know their words aren't appropriate.
-      response.setContentType("text/html;");
-      response.getWriter().println("<h1>Sentiment Analysis</h1>");
-      response.getWriter().println("<p>You entered: " + message + "</p>");
-      response.getWriter().println("<p>Sentiment analysis score: " + sentimentScore + "</p>");
-      response.getWriter().println("<p><a href=\"/\">Back</a></p>");
-    }
+    // Store the Post in Datastore and refresh page.
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(postEntity);
+    response.sendRedirect("/index.html");
   }
 
   /**
@@ -110,8 +97,9 @@ public class PostDataServlet extends HttpServlet {
       String lastName = (String) entity.getProperty("lastName");
       String email = (String) entity.getProperty("email");
       String message = (String) entity.getProperty("message");
+      Double sentimentScore = (Double) entity.getProperty("sentimentScore");
 
-      Post post = new Post(firstName, lastName, email, message);
+      Post post = new Post(firstName, lastName, email, message, sentimentScore);
       posts.add(post);
     }
 
