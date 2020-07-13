@@ -19,12 +19,14 @@ public class Post {
 
   /** Information from the user */
   private final String firstName;
+
   private final String lastName;
   private final String email;
   private final String message;
   private final double sentimentScore;
 
-  public Post(String firstName, String lastName, String email, String message, double sentimentScore) {
+  public Post(
+      String firstName, String lastName, String email, String message, double sentimentScore) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
