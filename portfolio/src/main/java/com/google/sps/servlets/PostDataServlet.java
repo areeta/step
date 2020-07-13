@@ -50,7 +50,7 @@ public class PostDataServlet extends HttpServlet {
         Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
     LanguageServiceClient languageService = LanguageServiceClient.create();
     Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-    Double sentimentScore = (double) sentiment.getScore();
+    double sentimentScore = (double) sentiment.getScore();
     languageService.close();
 
     // Create an Entity type Post.
@@ -97,7 +97,7 @@ public class PostDataServlet extends HttpServlet {
       String lastName = (String) entity.getProperty("lastName");
       String email = (String) entity.getProperty("email");
       String message = (String) entity.getProperty("message");
-      Double sentimentScore = (Double) entity.getProperty("sentimentScore");
+      double sentimentScore = (double) entity.getProperty("sentimentScore");
 
       Post post = new Post(firstName, lastName, email, message, sentimentScore);
       posts.add(post);

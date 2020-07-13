@@ -22,9 +22,9 @@ public class Post {
   private final String lastName;
   private final String email;
   private final String message;
-  private final Double sentimentScore;
+  private final double sentimentScore;
 
-  public Post(String firstName, String lastName, String email, String message, Double sentimentScore) {
+  public Post(String firstName, String lastName, String email, String message, double sentimentScore) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
