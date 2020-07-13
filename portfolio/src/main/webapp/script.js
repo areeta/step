@@ -41,7 +41,7 @@ function createPostElement(post) {
 
   // Add user contact information to post.
   const contactElement = document.createElement('h5');
-  contactElement.innerText = post.firstName + " " + post.lastName + " • " + post.email;
+  contactElement.innerText = post.firstName + " " + post.lastName + " • " + post.email + ", sentiment score: " + post.sentimentScore;
 
   // Add user message to post.
   const messageElement = document.createElement('p');
