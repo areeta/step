@@ -96,7 +96,7 @@ public final class FindMeetingQueryTest {
 
     Assert.assertEquals(expected, actual);
   }
-  /** 
+   
   @Test
   public void everyAttendeeIsConsidered() {
     // Have each person have different events. We should see two options because each person has
@@ -195,6 +195,7 @@ public final class FindMeetingQueryTest {
     Assert.assertEquals(expected, actual);
   }
 
+  /**
   @Test
   public void doubleBookedPeople() {
     // Have one person, but have them registered to attend two events at the same time.
