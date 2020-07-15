@@ -14,10 +14,47 @@
 
 package com.google.sps;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Set;
 
+/** Finds times when meeting could happen in a day. */
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    throw new UnsupportedOperationException("TODO: Implement this method.");
+    
+    // Gather information from given meeting request.
+    Collection<String> attendeesRequired = request.getAttendees();
+    long duration = request.getDuration();
+
+    Collection<TimeRange> possibleMeetingTimes = new ArrayList<TimeRange>();
+
+    // No attendees case.
+    if (attendeesRequired.size() == 0) {
+      possibleMeetingTimes.add(TimeRange.WHOLE_DAY);
+      return possibleMeetingTimes;
+
+    // Longer than a day case.
+    } else if (duration > 1440) {
+      return possibleMeetingTimes;
+   
+    // Only scheduling one person
+    } else if (attendeesRequired.size() == 1) {
+
+      int currentTime = TimeRange.START_OF_DAY;
+
+      // Assume events will be sorted from beginning of the day till end.
+      for (Event event: events) {
+        TimeRange when = event.getWhen();
+        possibleMeetingTimes.add(TimeRange.fromStartEnd(currentTime, when.start(), false));
+        currentTime = when.end();
+      }
+
+      if (currentTime != TimeRange.END_OF_DAY) {
+        possibleMeetingTimes.add(TimeRange.fromStartEnd(currentTime, TimeRange.END_OF_DAY, true));
+      }
+    }
+
+    return possibleMeetingTimes;
   }
 }
