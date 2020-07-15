@@ -19,6 +19,7 @@ public class Post {
 
   /** Information from the user */
   private final String firstName;
+
   private final String lastName;
   private final String email;
   private final String message;

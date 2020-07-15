@@ -17,13 +17,14 @@ package com.google.sps;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Set;
 
-/** Finds time ranges when meeting could happen in a day assuming given events will be sorted
-    from beginning of the day till the end. */
+/**
+ * Finds time ranges when meeting could happen in a day assuming given events will be sorted from
+ * beginning of the day till the end.
+ */
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    
+
     // Gather information from given meeting request.
     Collection<String> attendeesRequired = request.getAttendees();
     long duration = request.getDuration();
@@ -36,21 +37,21 @@ public final class FindMeetingQuery {
     int currentTime = TimeRange.START_OF_DAY;
     int endTime = TimeRange.END_OF_DAY;
 
-    // Iterate through each event to determine availibity. 
+    // Iterate through each event to determine availibity.
     for (Event event : events) {
-      
+
       // Check if event has relevant attendees and move to next one if doesn't
       if (Collections.disjoint(event.getAttendees(), attendeesRequired)) {
         continue;
       }
 
       TimeRange when = event.getWhen();
-      
+
       // Establish time change for overlapping possibilities.
       if (possibleMeetingTimes.size() >= 1 && when.overlaps(prevTimeRange)) {
         if (currentTime < when.end()) {
           currentTime = when.end();
-        } 
+        }
         continue;
       }
 
@@ -64,7 +65,7 @@ public final class FindMeetingQuery {
       currentTime = when.end();
       prevTimeRange = when;
     }
-    
+
     // Check if the rest of day needs to be included.
     TimeRange restOfDay = TimeRange.fromStartEnd(currentTime, TimeRange.END_OF_DAY, true);
     if (currentTime < TimeRange.END_OF_DAY && durationChecker(restOfDay, duration)) {
