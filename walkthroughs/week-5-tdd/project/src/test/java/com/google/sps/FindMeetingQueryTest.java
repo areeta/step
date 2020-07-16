@@ -458,9 +458,9 @@ public final class FindMeetingQueryTest {
 
     Collection<TimeRange> actual = query.query(events, request);
     Collection<TimeRange> expected =
-        Arrays.asList(TimeRange.fromStartDuration(TimeRange.START_OF_DAY, TIME_0830AM),
-            TimeRange.fromStartDuration(TIME_0900AM, TIME_0930AM),
-            TimeRange.fromStartDuration(TIME_1000AM, TIME_1030AM),
+        Arrays.asList(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false),
+            TimeRange.fromStartDuration(TIME_0900AM, DURATION_30_MINUTES),
+            TimeRange.fromStartDuration(TIME_1000AM, DURATION_30_MINUTES),
             TimeRange.fromStartEnd(TIME_1130AM, TimeRange.END_OF_DAY, true));
 
     Assert.assertEquals(expected, actual);
@@ -470,7 +470,7 @@ public final class FindMeetingQueryTest {
   public void onlyOptionalAttendeesWithNoGaps() {
     // Have no mandatory attendees, just two optional attendees with several gaps in their schedules.
     // Those gaps should be identified and returned.
-    // Events  : |----------A----------|
+    // Optional: |----------A----------|
     //           |----------B----------|
     // Day     : |---------------------|
     // Options : 

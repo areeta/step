@@ -18,30 +18,69 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
- * Finds time ranges when meeting could happen in a day assuming given events will be sorted from
- * beginning of the day till the end.
- */
 public final class FindMeetingQuery {
+
+  private Collection<String> requiredAttendees;
+  private Collection<String> optionalAttendees;
+  private long duration;
+  public static final int START = TimeRange.START_OF_DAY;
+  public static final int END = TimeRange.START_OF_DAY;
+
+  /** Finds times when meeting could happen in a day. */
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
 
     // Gather information from given meeting request.
-    Collection<String> attendeesRequired = request.getAttendees();
-    long duration = request.getDuration();
+    requiredAttendees = request.getAttendees();
+    optionalAttendees = request.getOptionalAttendees();
+    duration = request.getDuration();
 
-    // Initialize return object holding all possible time ranges.
+    // Initialize return object holding all free time ranges for attendees.
+    ArrayList<TimeRange> possibleMeetingTimes = new ArrayList<TimeRange>();
+    Collection<Event> optionalAttendeeEvents = getOptionalAttendeeEvents(events, optionalAttendees);
+    
+    // No required attendees case.
+    if (requiredAttendees.size() == 0) {
+
+      // Check for optional attendees and count them in if in range
+      if (optionalAttendees.size() > 0) {
+        possibleMeetingTimes.addAll(getRanges(optionalAttendees, optionalAttendeeEvents, duration));
+      } else {
+        possibleMeetingTimes.add(TimeRange.WHOLE_DAY);
+      }
+      return possibleMeetingTimes;
+
+    // Longer than a day case.
+    } else if (duration > 1440) {
+      return possibleMeetingTimes;
+    }
+
+    possibleMeetingTimes = getRanges (requiredAttendees, events, duration);
+
+    // Add any optional attendee that is free by removing their event time from overall meeting ranges.
+    if (optionalAttendeeEvents.size() > 0) {
+      ArrayList<TimeRange> optionalMeetingTimes = new ArrayList<TimeRange>();
+      for (Event event: optionalAttendeeEvents) {
+        optionalMeetingTimes.add(event.getWhen());
+      }
+      possibleMeetingTimes.removeAll(optionalMeetingTimes);
+    }
+    return possibleMeetingTimes;
+  }
+
+  public ArrayList<TimeRange> getRanges (Collection<String> requiredAttendees, Collection<Event> events, long duration) {
+
     ArrayList<TimeRange> possibleMeetingTimes = new ArrayList<TimeRange>();
 
     // Initialize external trackers of calendar date.
     TimeRange prevTimeRange = null;
-    int currentTime = TimeRange.START_OF_DAY;
-    int endTime = TimeRange.END_OF_DAY;
+    int currentTime = START;
+    int endTime = END;
 
     // Iterate through each event to determine availibity.
     for (Event event : events) {
 
       // Check if event has relevant attendees and move to next one if doesn't
-      if (Collections.disjoint(event.getAttendees(), attendeesRequired)) {
+      if (Collections.disjoint(event.getAttendees(), requiredAttendees)) {
         continue;
       }
 
@@ -75,9 +114,35 @@ public final class FindMeetingQuery {
     return possibleMeetingTimes;
   }
 
-  /** Determine if given time range is long enough for a meeting. */
-  public boolean durationChecker(TimeRange time, long duration) {
-    if (time.duration() >= duration) {
+  /**
+  * Returns events with optional attendees.
+  *
+  * @param events The events of everyone involved.  Must be non-null.
+  * @param optionalAttendees The optional attendees from the meeting request. Must be non-null.
+  * 
+  */
+  public Collection<Event> getOptionalAttendeeEvents(Collection<Event> events, Collection<String> optionalAttendees) {
+
+    Collection<Event> optionalAttendeeEvents = new ArrayList<Event>();
+
+    // Iterate through each event to determine which events with optional attendees.
+    for (Event event : events) {
+      if (Collections.disjoint(event.getAttendees(), optionalAttendees) == false) {
+        optionalAttendeeEvents.add(event);
+      }
+    }
+
+    return optionalAttendeeEvents;
+  }
+
+  /**
+  * Returns true if given time range is long enough for a meeting.
+  *
+  * @param range The time range when the event takes place. Must be non-null.
+  * @param duration The amount of time required for meeting request. Must be non-null.
+  */
+  public boolean durationChecker(TimeRange range, long duration) {
+    if (range.duration() >= duration) {
       return true;
     }
     return false;
