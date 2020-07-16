@@ -69,10 +69,14 @@ a #link {
   opacity: 0.7;
 }
 
-.card {
+.card-deck .card {
+  -ms-flex: 1 0 0%;
   background-color: #ffffff80;
   color: #000;
+  flex: 1 0 0%;
+  margin-right: 1rem;
   margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 
 .btn-primary {
