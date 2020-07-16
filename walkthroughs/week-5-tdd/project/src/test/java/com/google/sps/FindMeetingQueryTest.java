@@ -336,10 +336,7 @@ public final class FindMeetingQueryTest {
                 "Event 2",
                 TimeRange.fromStartDuration(TIME_0900AM, DURATION_30_MINUTES),
                 Arrays.asList(PERSON_B)),
-            new Event(
-                "Event 3",
-                TimeRange.WHOLE_DAY,
-                Arrays.asList(PERSON_C)));
+            new Event("Event 3", TimeRange.WHOLE_DAY, Arrays.asList(PERSON_C)));
 
     MeetingRequest request =
         new MeetingRequest(Arrays.asList(PERSON_A, PERSON_B), DURATION_30_MINUTES);
@@ -430,9 +427,10 @@ public final class FindMeetingQueryTest {
 
   @Test
   public void onlyOptionalAttendeesWithGaps() {
-    // Have no mandatory attendees, just two optional attendees with several gaps in their schedules.
+    // Have no mandatory attendees, just two optional attendees with several gaps in their
+    // schedules.
     // Those gaps should be identified and returned.
-    // Events  :   |A||B| |-A-| 
+    // Events  :   |A||B| |-A-|
     // Day     : |---------------------|
     // Options : |-|    |-|   |--------|
 
@@ -451,14 +449,14 @@ public final class FindMeetingQueryTest {
                 TimeRange.fromStartDuration(TIME_1030AM, DURATION_60_MINUTES),
                 Arrays.asList(PERSON_A)));
 
-
     MeetingRequest request = new MeetingRequest(Arrays.asList(), DURATION_30_MINUTES);
     request.addOptionalAttendee(PERSON_A);
     request.addOptionalAttendee(PERSON_B);
 
     Collection<TimeRange> actual = query.query(events, request);
     Collection<TimeRange> expected =
-        Arrays.asList(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false),
+        Arrays.asList(
+            TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false),
             TimeRange.fromStartDuration(TIME_0900AM, DURATION_30_MINUTES),
             TimeRange.fromStartDuration(TIME_1000AM, DURATION_30_MINUTES),
             TimeRange.fromStartEnd(TIME_1130AM, TimeRange.END_OF_DAY, true));
@@ -468,12 +466,13 @@ public final class FindMeetingQueryTest {
 
   @Test
   public void onlyOptionalAttendeesWithNoGaps() {
-    // Have no mandatory attendees, just two optional attendees with several gaps in their schedules.
+    // Have no mandatory attendees, just two optional attendees with several gaps in their
+    // schedules.
     // Those gaps should be identified and returned.
     // Optional: |----------A----------|
     //           |----------B----------|
     // Day     : |---------------------|
-    // Options : 
+    // Options :
 
     Collection<Event> events =
         Arrays.asList(

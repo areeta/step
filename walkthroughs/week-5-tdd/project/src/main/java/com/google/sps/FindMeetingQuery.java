@@ -37,7 +37,7 @@ public final class FindMeetingQuery {
     // Initialize return object holding all free time ranges for attendees.
     ArrayList<TimeRange> possibleMeetingTimes = new ArrayList<TimeRange>();
     Collection<Event> optionalAttendeeEvents = getOptionalAttendeeEvents(events, optionalAttendees);
-    
+
     // No required attendees case.
     if (requiredAttendees.size() == 0) {
 
@@ -49,17 +49,18 @@ public final class FindMeetingQuery {
       }
       return possibleMeetingTimes;
 
-    // Longer than a day case.
+      // Longer than a day case.
     } else if (duration > 1440) {
       return possibleMeetingTimes;
     }
 
-    possibleMeetingTimes = getRanges (requiredAttendees, events, duration);
+    possibleMeetingTimes = getRanges(requiredAttendees, events, duration);
 
-    // Add any optional attendee that is free by removing their event time from overall meeting ranges.
+    // Add any optional attendee that is free by removing their event time from overall meeting
+    // ranges.
     if (optionalAttendeeEvents.size() > 0) {
       ArrayList<TimeRange> optionalMeetingTimes = new ArrayList<TimeRange>();
-      for (Event event: optionalAttendeeEvents) {
+      for (Event event : optionalAttendeeEvents) {
         optionalMeetingTimes.add(event.getWhen());
       }
       possibleMeetingTimes.removeAll(optionalMeetingTimes);
@@ -67,7 +68,8 @@ public final class FindMeetingQuery {
     return possibleMeetingTimes;
   }
 
-  public ArrayList<TimeRange> getRanges (Collection<String> requiredAttendees, Collection<Event> events, long duration) {
+  public ArrayList<TimeRange> getRanges(
+      Collection<String> requiredAttendees, Collection<Event> events, long duration) {
 
     ArrayList<TimeRange> possibleMeetingTimes = new ArrayList<TimeRange>();
 
@@ -115,13 +117,13 @@ public final class FindMeetingQuery {
   }
 
   /**
-  * Returns events with optional attendees.
-  *
-  * @param events The events of everyone involved.  Must be non-null.
-  * @param optionalAttendees The optional attendees from the meeting request. Must be non-null.
-  * 
-  */
-  public Collection<Event> getOptionalAttendeeEvents(Collection<Event> events, Collection<String> optionalAttendees) {
+   * Returns events with optional attendees.
+   *
+   * @param events The events of everyone involved. Must be non-null.
+   * @param optionalAttendees The optional attendees from the meeting request. Must be non-null.
+   */
+  public Collection<Event> getOptionalAttendeeEvents(
+      Collection<Event> events, Collection<String> optionalAttendees) {
 
     Collection<Event> optionalAttendeeEvents = new ArrayList<Event>();
 
@@ -136,11 +138,11 @@ public final class FindMeetingQuery {
   }
 
   /**
-  * Returns true if given time range is long enough for a meeting.
-  *
-  * @param range The time range when the event takes place. Must be non-null.
-  * @param duration The amount of time required for meeting request. Must be non-null.
-  */
+   * Returns true if given time range is long enough for a meeting.
+   *
+   * @param range The time range when the event takes place. Must be non-null.
+   * @param duration The amount of time required for meeting request. Must be non-null.
+   */
   public boolean durationChecker(TimeRange range, long duration) {
     if (range.duration() >= duration) {
       return true;
