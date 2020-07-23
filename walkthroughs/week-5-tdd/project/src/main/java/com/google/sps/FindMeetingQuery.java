@@ -39,10 +39,10 @@ public final class FindMeetingQuery {
     Collection<Event> optionalAttendeeEvents = getOptionalAttendeeEvents(events, optionalAttendees);
 
     // No required attendees case.
-    if (requiredAttendees.size()==0) {
+    if (requiredAttendees.size() == 0) {
 
       // Check for optional attendees and count them in if in range.
-      if (optionalAttendees.size()>0) {
+      if (optionalAttendees.size() > 0) {
         possibleMeetingTimes.addAll(getRanges(optionalAttendees, optionalAttendeeEvents, duration));
       } else {
         possibleMeetingTimes.add(TimeRange.WHOLE_DAY);
@@ -50,7 +50,7 @@ public final class FindMeetingQuery {
       return possibleMeetingTimes;
 
       // Longer than a day case.
-    } else if (duration>1440) {
+    } else if (duration > 1440) {
       return possibleMeetingTimes;
     }
 
@@ -58,7 +58,7 @@ public final class FindMeetingQuery {
 
     // Add any optional attendee that is free by removing their event time from overall meeting
     // ranges.
-    if (optionalAttendeeEvents.size()>0) {
+    if (optionalAttendeeEvents.size() > 0) {
       ArrayList<TimeRange> optionalMeetingTimes = new ArrayList<TimeRange>();
       for (Event event : optionalAttendeeEvents) {
         optionalMeetingTimes.add(event.getWhen());
@@ -89,7 +89,7 @@ public final class FindMeetingQuery {
       TimeRange when = event.getWhen();
 
       // Establish time change for overlapping possibilities.
-      if (possibleMeetingTimes.size()>=1 && when.overlaps(prevTimeRange)) {
+      if (possibleMeetingTimes.size() >= 1 && when.overlaps(prevTimeRange)) {
         if (currentTime < when.end()) {
           currentTime = when.end();
         }
@@ -144,7 +144,7 @@ public final class FindMeetingQuery {
    * @param duration The amount of time required for meeting request. Must be non-null.
    */
   public boolean durationChecker(TimeRange range, long duration) {
-    if (range.duration()>=duration) {
+    if (range.duration() >= duration) {
       return true;
     }
     return false;
